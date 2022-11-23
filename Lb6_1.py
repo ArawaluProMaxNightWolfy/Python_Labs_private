@@ -15,8 +15,7 @@ class Password:
             password += ''.join(secrets.choice(stroka))
         for i in range(self.length - len(self.tuple_of_strs)):
             password += ''.join(secrets.choice(self.signs_list))
-        return password
-    
+        return password   
 parser = argparse.ArgumentParser(
     prog = 'PasswordGeneration',
     description = 'Programma generiruet paroli',
@@ -37,14 +36,15 @@ abc = 'abcdefghijklmnopqrstuvwxyz'
 abc_upper = abc.upper()
 numbers = '0123456789'
 lst = []
-if parser.parse_args().Aa1 != None:
-    for i in parser.parse_args().Aa1:
-        if i == 'A':
-            lst.append(abc_upper)
-        elif i == 'a':
-            lst.append(abc)
-        elif i == '1':
-            lst.append(numbers)
+for i in parser.parse_args().Aa1:
+    if i == 'A':
+        lst.append(abc_upper)
+    elif i == 'a':
+        lst.append(abc)
+    elif i == '1':
+        lst.append(numbers)
+    else:
+        print('Был введён непредусмотренный символ, но ладно')
 parol = Password(tuple_of_strs=tuple(lst), length=parser.parse_args().length)
 for i in range(parser.parse_args().quantity):
     print(parol.generate())
