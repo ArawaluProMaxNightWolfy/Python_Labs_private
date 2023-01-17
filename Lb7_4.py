@@ -1,6 +1,6 @@
 import http.client
 def download(f):
-    conn.request("GET", d + f)
+    conn.request("GET", '/anatoly/' + f)
     r = conn.getresponse()
     n = r.read()
     f = open('картинка.jpg', 'bw')
@@ -16,8 +16,7 @@ class MyParser(HTMLParser):
                     return f
 parser = MyParser()
 conn = http.client.HTTPSConnection("beda.pnzgu.ru")
-d='/anatoly/'
-conn.request('GET', d)
+conn.request('GET', '/anatoly/')
 r = conn.getresponse()
 parser.feed(r.read().decode())
 parser.close()
